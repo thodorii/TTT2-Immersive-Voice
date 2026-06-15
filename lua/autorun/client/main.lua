@@ -1,12 +1,11 @@
 if CLIENT then
 
-	print("TTT1-Permanent-Hide-Voice-Panel loaded")
-
 	function GetVoicePanel()
 		return hudelements.GetStored("pure_skin_voice")
 	end
 
-	-- Mostly the draw code copied from pure_skin_voice.lua with hooked in conditional logic for player type
+	-- Vanilla HUD Draw code with the inclusion of conditional no-draws depending on voicechat type.
+	-- See TTT2/gamemodes/terrortown/gamemode/shared/hud_elements/tttvoice/pure_skin_voice.lua
 	function RestrictiveDraw()
 		local hide_innocent = GetConVar("ttt2_hide_voice_panel_innocent"):GetInt() == 1
 		local hide_traitor = GetConVar("ttt2_hide_voice_panel_traitor"):GetInt() == 1
@@ -62,7 +61,7 @@ if CLIENT then
 		local elem = GetVoicePanel()
 
 		if not elem then
-			print("TTT1-Permanent-Hide-Voice-Panel: pure_skin_voice not found")
+			print("TTT2-Immersive-Voice: pure_skin_voice not found. Either TTT2 is not installed or it has updated and is incompatible.")
 			return
 		end
 
@@ -70,6 +69,6 @@ if CLIENT then
 	end
 
 	--- PostInitPostEntity is called after all TTT1 HUD elements are initialized and mounted.
-	hook.Add("PostInitPostEntity", "TTT1-Permanent-Hide-Voice-Panel", OverrideVoicePanel)
+	hook.Add("PostInitPostEntity", "TTT2-Immersive-Voice", OverrideVoicePanel)
 
 end 
