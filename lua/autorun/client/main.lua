@@ -68,7 +68,7 @@ if CLIENT then
 		elem.Draw = RestrictiveDraw
 	end
 
-	--- PostInitPostEntity is called after all TTT1 HUD elements are initialized and mounted.
+	--- PostInitPostEntity is called after all TTT2 HUD elements are initialized and mounted, so this is where we can override the draw functions.
 	hook.Add("PostInitPostEntity", "TTT2-Immersive-Voice", OverrideVoicePanel)
 
 end 
